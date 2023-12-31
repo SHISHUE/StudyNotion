@@ -1,0 +1,121 @@
+/* Import the base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #19212ea0; /* Change this to your desired thumb color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000814; /* Change this to your desired track color */
+  border-radius: 1px;
+}
+
+
+
+.text-color {
+  background: linear-gradient(
+      118.19deg,
+      #1fa2ff -3.62%,
+      #12d8fa 50.44%,
+      #a6ffcb 104.51%
+    ),
+    linear-gradient(0deg, #f1f2ff, #f1f2ff);
+    background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-color1 {
+  background: linear-gradient(
+      118.19deg,
+      #FF512F -3.62%,
+      #F09819 50.44%,
+      #9a5120 109.51%
+    ),
+    linear-gradient(0deg, #f1f2ff, #f1f2ff);
+    background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-color2 {
+  background: linear-gradient(
+      118.19deg,
+      #FF512F -3.62%,
+      #F09819 50.44%,
+      #a16c3b 109.51%
+    ),
+    linear-gradient(90deg, #E65C00, #F9D423);
+    background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-color3 {
+  background: linear-gradient(
+      115.19deg,
+      #833AB4 -8.62%,
+      #FD1D1D 50.44%,
+      #FCB045 109.51%
+    ),
+    linear-gradient(0deg, #E65C00, #F9D423);
+    background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.boxs {
+    box-shadow: #3e454f 3px 3px 1.2px;
+}
+
+.video {
+  -webkit-box-shadow: 5px -28.5px 32px -11.5px #234272;
+  -moz-box-shadow: 5px -28.5px 32px -11.5px #234272;
+  box-shadow: 5px -28.5px 32px -11.5px #234272;
+}
+
+.video-shadow {
+  -webkit-box-shadow: 10px 10px 1.5px 1px #ffffff;
+-moz-box-shadow: 10px 10px 1.5px 1px #ffffff;
+box-shadow: 10px 10px 1.5px 1px #ffffff;
+}
+
+
+
+.glassy {
+ 
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30x);
+  border: 0.1px solid #c1c4c91e;
+}
+
+.homepage_bg {
+  background-image: url('../src/assest/images/Frame\ 25.svg');
+}
+
+.card-shadow{
+  background: linear-gradient();
+
+  box-shadow: 4px ;
+}
+
+.w {
+  all: unset;
+ 
+}
+.wl:checked {
+  background-color: #fff;
+}
