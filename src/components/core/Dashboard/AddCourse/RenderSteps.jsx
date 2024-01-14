@@ -2,6 +2,7 @@ import React from "react";
 import { FaCheck } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import CourseInformationForm from "./CourseInformation/CourseInformationForm";
+import CourseBuilderForm from "./CourseBuilder/CourseBuilderForm";
 
 const RenderSteps = () => {
   const { step } = useSelector((state) => state.course);
@@ -20,44 +21,39 @@ const RenderSteps = () => {
       title: "Publish",
     },
   ];
+ 
+  console.log("STEP...", step);
 
   return (
-    <div>
-      <div>
+    <div className="text-richblack-5">
+      <div className="flex w-full items-center justify-between">
         {steps.map((item, index) => (
           <>
-            <div>
+            <div
+              className="flex items-center justify-center my-5 flex-col gap-2 mx-3"
+              key={index}
+            >
               <div
-                className={`${
+                className={`w-[2.3vw] h-[2.3vw] rounded-full text-[16px] flex items-center justify-center ${
                   step === item.id
-                 ? "bg-[#ffd06a50] border-[#FFD06A] text-[#FFD06A] " : "border-richblack-100 bg-richblack-800 text-richblack-300"}n`}
+                    ? "bg-[#ffd06a33] border-[#f2c564] border-[1px] text-[#f2c564] "
+                    : "border-richblack-700 border-[1px] bg-richblack-800 text-richblack-300"
+                }`}
               >
-                {step > item.id ? <FaCheck /> : item.id}
+                {step > item.id ? <span className="w-full h-full bg-[#FFD06A] flex justify-center items-center overflow-hidden"><FaCheck className="text-richblack-700"/></span> : item.id}
+              </div>
+
+              <div>
+                <p className="text-[14px] leading-[22px]">{item.title}</p>
               </div>
             </div>
-            {
-                item.id !== steps.length ? (<div className="text-[#FFD06A]">........</div>) : (<div className="text-richblack-500">............</div>)
-            }
           </>
         ))}
       </div>
 
-       <div>
-            {steps.map((item) => (
-                <>
-                    <div>
-                        <p>{item.title}</p>
-                    </div>
-                </>
-            ))}
-       </div>
-
-       {
-        step === 1 && <CourseInformationForm />
-       }
-       {/* {step === 2 && <CourseBuilderForm />}
-       {step === 3 && <Publish />} */}
-
+      {step === 1 && <CourseInformationForm />}
+      {step === 2 && <CourseBuilderForm />}
+      {/* {step === 3 && <Publish />} */}
     </div>
   );
 };
