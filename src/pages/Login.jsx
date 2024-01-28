@@ -12,7 +12,6 @@ import {login} from "../services/operations/authAPI";
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [accountType, setAccountType] = useState("Student");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -20,11 +19,8 @@ function Login() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-   
+
     dispatch(login(email, password, navigate))
-
-
-    setAccountType('Student')
     setEmail('')
     setPassword('')
   }
@@ -45,28 +41,7 @@ function Login() {
           </p>
         </div>
 
-        <div className='bg-richblack-800 w-fit rounded-full py-1 px-2 gap-[5px] flex shadow-[#FFFFFF2E] shadow'>
-              <button
-                    onClick={() => setAccountType("Student")}
-                    className={`${
-                      accountType === "Student"
-                        ? "bg-richblack-900 text-richblack-5"
-                        : "bg-transparent text-richblack-200 "
-                    } py-2 px-5 rounded-full transition-all`}
-                  >
-                    Student
-              </button>
-                <button
-                    onClick={() => setAccountType("instructor")}
-                    className={`${
-                      accountType === "instructor"
-                        ? "bg-richblack-900 text-richblack-5"
-                        : "bg-transparent text-richblack-200 "
-                    } py-2 px-5 rounded-full transition-all`}
-                  >
-                    Instructors
-              </button>
-        </div>
+       
         
         <div className='flex flex-col mt-3'>
           <form action="" onSubmit={submitHandler} className='flex flex-col gap-3 relative w-[70%]'>

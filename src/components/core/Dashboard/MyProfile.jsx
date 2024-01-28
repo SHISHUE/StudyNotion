@@ -6,7 +6,7 @@ import { BiSolidEdit } from "react-icons/bi";
 
 function MyProfile() {
   const { user } = useSelector((state) => state.profile);
-  console.log("DASHBOARD ME USER KA DATA AA RAHA HAI...", user);
+  // console.log("DASHBOARD ME USER KA DATA AA RAHA HAI...", user);
   const navigate = useNavigate();
 
   return (

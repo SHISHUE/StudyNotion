@@ -15,7 +15,7 @@ function ContactUsForm() {
   } = useForm();
 
   const submitContactForm = async (data) => {
-    console.log("FORM KA DATA......", data);
+    // console.log("FORM KA DATA......", data);
     try {
       setLoading(true);
       const response = await apiConnector(
@@ -23,11 +23,11 @@ function ContactUsForm() {
         contactusEndpoint.CONTACT_US_API,
         { data }
       );
-      console.log("LOGGING RESPONSE >>>>>>", response);
+      // console.log("LOGGING RESPONSE >>>>>>", response);
       setLoading(false);
       toast.success("Message sent Successfull");
     } catch (error) {
-      console.log("FORM SUBMITTING ME ERROR AA RAHA HAI ", error);
+      // console.log("FORM SUBMITTING ME ERROR AA RAHA HAI ", error);
       setLoading(false);
       toast.error("Something Wrong");
     }

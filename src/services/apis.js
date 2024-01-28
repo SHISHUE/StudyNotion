@@ -1,4 +1,7 @@
+
 const BASE_URL = process.env.REACT_APP_BASE_URL
+
+
 
 export const endpoints = {
     SENDOTP_API: BASE_URL + "/auth/sendotp",
@@ -11,6 +14,7 @@ export const endpoints = {
 export const profileEndpoints = {
     GET_USER_DETAILS_API: BASE_URL + "/profie/getUserDetails",
     GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
+    GET_INSTRUCTOR_DATA_API: BASE_URL + "/profile/instructorDashboard"
 }
 
 export const studentEndpoints = {
@@ -21,7 +25,7 @@ export const studentEndpoints = {
 
 export const courseEndpoints = {
     GET_ALL_COURSE_API: BASE_URL + "/course/getAllCourses",
-    COURSE_DETAILS_API: BASE_URL + "/course/getCourseDetails",
+    COURSE_DETAILS_API: BASE_URL + "/course/getCoursesDetails",
     EDIT_COURSE_API: BASE_URL + "/course/editCourse",
     COURSE_CATEGORIES_API: BASE_URL + "/course/showAllCategories",
     CREATE_COURSE_API: BASE_URL + "/course/createCourse",

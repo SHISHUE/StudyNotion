@@ -1,7 +1,6 @@
 import { apiConnector } from "../apiconnector";
 import { toast } from "react-hot-toast";
 import { setLoading } from "../../slices/authSlice";
-import { setResetCart } from "../../slices/cartSlice";
 import { setUser } from "../../slices/profileSlice";
 import { endpoints } from "../apis";
 
@@ -24,8 +23,8 @@ export function sendOtp(email, navigate) {
         email,
         checkUserPresent: true,
       });
-      console.log("SENDOTP API RESPONSE........", response);
-      console.log(response.data.success);
+      // console.log("SENDOTP API RESPONSE........", response);
+      // console.log(response.data.success);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -33,7 +32,7 @@ export function sendOtp(email, navigate) {
       toast.success("OTP Sent Successfully");
       navigate("/verify-email");
     } catch (error) {
-      console.log("SENDOTP API ERROR...........", error);
+      // console.log("SENDOTP API ERROR...........", error);
       toast.error("Cloud not send otp");
     }
     dispatch(setLoading(false));
@@ -67,7 +66,7 @@ export function signUp(
         otp,
       });
 
-      console.log("SIGNUP API RESOPONSE..............", response);
+      // console.log("SIGNUP API RESOPONSE..............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -75,7 +74,7 @@ export function signUp(
       toast.success("Signup Successfull");
       navigate("/login");
     } catch (error) {
-      console.log("SINGUP API ERROR.......", error);
+      // console.log("SINGUP API ERROR.......", error);
       toast.error("Signup Failed");
       navigate("/signup");
     } //finally{
@@ -109,7 +108,7 @@ export function login(email, password, navigate) {
         password,
       });
 
-      console.log("LOGIN API RESPONSE........", response);
+      // console.log("LOGIN API RESPONSE........", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -128,7 +127,7 @@ export function login(email, password, navigate) {
       navigate("/dashboard/my-profile");
       dispatch(setToken(response.data.token));
     } catch (error) {
-      console.log("LOGIN API ERROR...............", error);
+      // console.log("LOGIN API ERROR...............", error);
       toast.error("Login failed");
     }
     dispatch(setLoading(false));
@@ -140,7 +139,6 @@ export function logout(navigate) {
   return (dispatch) => {
     dispatch(setToken(null));
     dispatch(setUser(null));
-    dispatch(setResetCart()); // Assuming setResetCart does not require any payload
     // localStorage.removeItem("token");
     // localStorage.removeItem("user");
     localStorage.clear();
@@ -157,7 +155,7 @@ export function getPasswordResetToken(email, setEmailSent) {
         email,
       });
 
-      console.log("RESET PASSWORD TOKEN RES.......", response);
+      // console.log("RESET PASSWORD TOKEN RES.......", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -166,7 +164,7 @@ export function getPasswordResetToken(email, setEmailSent) {
       toast.success("Reset Email send");
       setEmailSent(true);
     } catch (error) {
-      console.log("REST PASSWORD TOKEN ERROR.....", error);
+      // console.log("REST PASSWORD TOKEN ERROR.....", error);
       toast.error("Failed to send email for reseting password.");
     }
     dispatch(setLoading(false));
@@ -183,7 +181,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         token,
       });
 
-      console.log("RESET PASSWORD RESPONSE.....", response);
+      // console.log("RESET PASSWORD RESPONSE.....", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
@@ -192,7 +190,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       toast.success("Password has been reset successfully");
       navigate("/login");
     } catch (error) {
-      console.log("RESET PASSWORD ERROR......", error);
+      // console.log("RESET PASSWORD ERROR......", error);
       toast.error("Unable to reset password");
     }
     dispatch(setLoading(false));

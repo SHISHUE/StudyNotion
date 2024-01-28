@@ -5,6 +5,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import ContactUsForm from "../components/core/ContactPage/ContactUsForm";
 import HighlightText from "../components/core/HomePage/HighlightText";
 import Footer from "../components/common/Footer";
+import ReviewSlider from "../components/common/ReviewSlider";
 
 function Contact() {
   return (
@@ -76,11 +77,12 @@ function Contact() {
         </div>
 
         {/* Review Slideer  */}
-        <div className="mt-[10%]">
+        <div className="mt-[10%] flex flex-col items-center gap-3">
           <h1 className="text-[36px] text-richblack-5 font-bold leading-[44px] text-center">
             Reviews from other learners
           </h1>
           {/* <ReviewSlider />  */}
+          <ReviewSlider />
         </div>
       </section>
 

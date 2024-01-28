@@ -1,27 +1,22 @@
 import React from 'react'
 import MyCourseCard from './MyCourseCard'
+import IconBtn from '../../common/IconBtn'
+import {useNavigate} from 'react-router-dom'
+import { FaCirclePlus } from "react-icons/fa6";
 
 function MyCourses() {
+    const navigate = useNavigate();
   return (
-    <div className='p-5 text-richblack-5'>
-        <h1 className='text-[30px] leading-[38px] font-medium mb-[5%]'>My Courses</h1>
+    <div className='p-5 text-richblack-5 '>
+        <div className='flex w-full justify-between px-3 items-center  mb-[5%]'>
+            <h1 className='text-[30px]  leading-[38px] font-medium '>My Courses</h1>
+            <IconBtn text="Add Course" onClick={() => navigate("/dashboard/add-course")} ><FaCirclePlus className='text-richblack-900'/></IconBtn>
+        </div>
 
-        <div className='border-[1px] border-richblack-500'>
-            <div className='border-b-[1px] border-richblack-500 flex justify-between p-3 px-4'>
-                <div className='text-[14px] leading-[22px] font-medium text-[#AFB2BF]'>
-                    COURSES
-                </div>
-
-                <div className='flex gap-16'>
-                    <p className='text-[14px] leading-[22px] font-medium text-[#AFB2BF]'>DURATION</p>
-                    <p className='text-[14px] leading-[22px] font-medium text-[#AFB2BF]'>PRICE</p>
-                    <p className='text-[14px] leading-[22px] font-medium text-[#AFB2BF]'>ACTIONS</p>
-                </div>
-            </div>
+       
 
             <MyCourseCard />
         </div>
-    </div>
   )
 }
 

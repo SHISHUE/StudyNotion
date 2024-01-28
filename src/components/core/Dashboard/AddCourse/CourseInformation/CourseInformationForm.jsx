@@ -40,7 +40,7 @@ const CourseInformationForm = () => {
     };
 
     if (editCourse) {
-      setValue("courseTitle", course.courseName);
+      setValue("courseTitle", course.courseTitle);
       setValue("courseShortDesc", course.courseDescription);
       setValue("coursePrice", course.price);
       setValue("courseTags", course.tag);
@@ -51,15 +51,15 @@ const CourseInformationForm = () => {
     }
 
     getCategories();
-  }, []);
+  },[]);
 
   const isFormUpdated = () => {
     const currentValues = getValues();
     if (
-      currentValues.courseTitle !== course.courseName ||
+      currentValues.courseTitle !== course.courseTitle ||
       currentValues.courseShortDesc !== course.courseDescription ||
       currentValues.coursePrice !== course.price ||
-      currentValues.courseTags.toString() !== course.tag.toString() ||
+      currentValues.courseTags.toString() !== course.tags.toString() ||
       currentValues.courseBenefits !== course.whatYouWillLearn ||
       currentValues.courseCategory._id !== course.category._id ||
       currentValues.courseImage !== course.thumbnail ||
@@ -79,16 +79,17 @@ const CourseInformationForm = () => {
         const formData = new FormData();
 
         formData.append("courseId", course._id);
-        if (currentValues.courseTitle !== course.courseName) {
-          formData.append("courseName", data.courseTitle);
+        formData.append("token", token);
+        if (currentValues.courseTitle !== course.courseTitle) {
+          formData.append("courseTitle", data.courseTitle);
         }
         if (currentValues.courseShortDesc !== course.courseDescription) {
-          formData.append("courseDescription", data.courseShortDesc);
+          formData.append("courseDescription", data.courseDescription);
         }
         if (currentValues.coursePrice !== course.price) {
           formData.append("price", data.coursePrice);
         }
-        if (currentValues.courseTags.toString() !== course.tag.toString()) {
+        if (currentValues.courseTags.toString() !== course.tags.toString()) {
           formData.append("tag", JSON.stringify(data.courseTags));
         }
         if (currentValues.courseBenefits !== course.whatYouWillLearn) {
@@ -99,7 +100,7 @@ const CourseInformationForm = () => {
         }
         if (
           currentValues.courseRequirements.toString() !==
-          course.course.instructions.toString()
+          course.instructions.toString()
         ) {
           formData.append(
             "instructions",
@@ -297,7 +298,7 @@ const CourseInformationForm = () => {
             htmlFor="courseBenefits"
             className="text-[14px] text-richblack-5 flex items-center"
           >
-            Benefits of the course <sup>*</sup>
+            Benefits of the course <sup className="text-[14px] text-[#EF476F] ">*</sup>
           </label>
           <textarea
             name="courseBenefits"
@@ -324,11 +325,11 @@ const CourseInformationForm = () => {
           getValues={getValues}
         />
 
-        <div className="w-full ml-[90%]">
+        <div className={`w-full flex gap-x-2 ${editCourse ? "ml-[21vw]" : "ml-[90%]"} `}>
           {editCourse && (
             <button
               onClick={() => dispatch(setStep(2))}
-              className="flex items-center gap-x-2 bg-richblack-300"
+              className="flex items-center bg-richblack-300 rounded-md px-2 py-3 hover:bg-richblack-200 transition-all duration-200"
             >
               Continue without saving
             </button>

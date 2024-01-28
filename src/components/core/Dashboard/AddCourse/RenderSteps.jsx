@@ -3,6 +3,7 @@ import { FaCheck } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import CourseInformationForm from "./CourseInformation/CourseInformationForm";
 import CourseBuilderForm from "./CourseBuilder/CourseBuilderForm";
+import Publish from "./PublishedCourse";
 
 const RenderSteps = () => {
   const { step } = useSelector((state) => state.course);
@@ -22,7 +23,7 @@ const RenderSteps = () => {
     },
   ];
  
-  console.log("STEP...", step);
+  // console.log("STEP...", step);
 
   return (
     <div className="text-richblack-5">
@@ -34,13 +35,13 @@ const RenderSteps = () => {
               key={index}
             >
               <div
-                className={`w-[2.3vw] h-[2.3vw] rounded-full text-[16px] flex items-center justify-center ${
+                className={`w-[2.3vw] h-[2.3vw] overflow-hidden rounded-full text-[16px] flex items-center justify-center ${
                   step === item.id
-                    ? "bg-[#ffd06a33] border-[#f2c564] border-[1px] text-[#f2c564] "
+                    ? "bg-[#ffd06a24] border-[#f2c564] border-[1px] text-[#f2c564] "
                     : "border-richblack-700 border-[1px] bg-richblack-800 text-richblack-300"
                 }`}
               >
-                {step > item.id ? <span className="w-full h-full bg-[#FFD06A] flex justify-center items-center overflow-hidden"><FaCheck className="text-richblack-700"/></span> : item.id}
+                {step > item.id ? <span className="w-full h-full bg-[#FFD06A] flex justify-center items-center"><FaCheck className="text-richblack-700"/></span> : item.id}
               </div>
 
               <div>
@@ -53,7 +54,7 @@ const RenderSteps = () => {
 
       {step === 1 && <CourseInformationForm />}
       {step === 2 && <CourseBuilderForm />}
-      {/* {step === 3 && <Publish />} */}
+      {step === 3 && <Publish />}
     </div>
   );
 };

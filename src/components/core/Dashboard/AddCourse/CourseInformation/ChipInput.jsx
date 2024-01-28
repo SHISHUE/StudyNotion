@@ -30,8 +30,8 @@ function ChipInput({ label, name, placeholder, register, errors, setValue, getVa
 
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <div className="flex flex-wrap gap-2 bg-richblack-900 text-richblack-5 w-fit rounded-full">
+      <label htmlFor={name}>{label} <sup className="text-[14px] text-[#EF476F] ">*</sup></label>
+      <div className="flex flex-wrap gap-2 bg-richblack-900 border-r-2 border-richblack-700 text-richblack-5 w-fit rounded-full">
         {chipList.map((chip, index) => (
           <div key={index} className="bg-gray-300 px-2 py-1 rounded-full flex items-center">
             <span>{chip}</span>

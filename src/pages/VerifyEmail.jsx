@@ -13,12 +13,12 @@ function VerifyEmail() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log("Verify email me response aa raha hai........", signupData);
+  // console.log("Verify email me response aa raha hai........", signupData);
   useEffect(() => {
     if (!signupData) {
       navigate("/signup");
     }
-  }, []);
+  }, [navigate, signupData]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();

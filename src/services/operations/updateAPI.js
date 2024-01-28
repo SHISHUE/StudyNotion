@@ -20,7 +20,7 @@ const {
 export function updateprofile(token, email, file) {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log("UPLOADING ME TOKEN", token, email, file);
+        // console.log("UPLOADING ME TOKEN", token, email, file);
         dispatch(setLoading(true));
 
         try {
@@ -35,7 +35,7 @@ export function updateprofile(token, email, file) {
                 },
             });
 
-            console.log("UPDATE PROFILE PICTURE API RESPONSE........", response);
+            // console.log("UPDATE PROFILE PICTURE API RESPONSE........", response);
             dispatch(setUser(response.data.data));
             localStorage.setItem("user", JSON.stringify(response.data.data));
 
@@ -46,7 +46,7 @@ export function updateprofile(token, email, file) {
             toast.success("Picture Updated");
             //   navigate("/verify-email");
         } catch (error) {
-            console.log("Updating picture API ERROR...........", error);
+            // console.log("Updating picture API ERROR...........", error);
             toast.error("Something wrong!");
         }
 
@@ -59,7 +59,7 @@ export function updateprofile(token, email, file) {
 export function updateprofileInfo(gender, dob, phonenumber, about, token) {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log("INFORMATION UPLOADING ME TOKEN", gender, dob, phonenumber, about, token);
+        // console.log("INFORMATION UPLOADING ME TOKEN", gender, dob, phonenumber, about, token);
         dispatch(setLoading(true));
 
         try {
@@ -72,7 +72,7 @@ export function updateprofileInfo(gender, dob, phonenumber, about, token) {
 
             });
 
-            console.log("UPDATE PROFILE INFO. API RESPONSE........", response);
+            // console.log("UPDATE PROFILE INFO. API RESPONSE........", response);
             dispatch(setUser(response.data.data));
             localStorage.setItem("user", JSON.stringify(response.data.data));
 
@@ -83,7 +83,7 @@ export function updateprofileInfo(gender, dob, phonenumber, about, token) {
             toast.success("Infomation Updated");
             //   navigate("/verify-email");
         } catch (error) {
-            console.log("Updating Information API ERROR...........", error);
+            // console.log("Updating Information API ERROR...........", error);
             toast.error("Something wrong!");
         }
 
@@ -97,7 +97,7 @@ export function updateprofileInfo(gender, dob, phonenumber, about, token) {
 export function changePassword(token, password, newPassword, navigate) {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log("CHANGEPASSWORD UPLOADING ME TOKEN", password, newPassword, token);
+        // console.log("CHANGEPASSWORD UPLOADING ME TOKEN", password, newPassword, token);
         dispatch(setLoading(true));
 
         try {
@@ -108,7 +108,7 @@ export function changePassword(token, password, newPassword, navigate) {
                 confirmPassword: newPassword
             });
 
-            console.log("CHANGE PASSWORD API RESPONSE........", response);
+            // console.log("CHANGE PASSWORD API RESPONSE........", response);
            
 
             if (!response) {
@@ -118,7 +118,7 @@ export function changePassword(token, password, newPassword, navigate) {
             toast.success("Password Changed");
             dispatch(logout(navigate))
         } catch (error) {
-            console.log("Password Changing API ERROR...........", error);
+            // console.log("Password Changing API ERROR...........", error);
             toast.error("Something wrong!");
         }
 
@@ -131,7 +131,7 @@ export function changePassword(token, password, newPassword, navigate) {
 export function deleteAccount(token, navigate) {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log("Delete Account ME TOKEN",token);
+        // console.log("Delete Account ME TOKEN",token);
         dispatch(setLoading(true));
 
         try {
@@ -139,7 +139,7 @@ export function deleteAccount(token, navigate) {
                 token: token,
             });
 
-            console.log("DELETE API RESPONSE........", response);
+            // console.log("DELETE API RESPONSE........", response);
            
 
             if (!response) {
@@ -150,7 +150,7 @@ export function deleteAccount(token, navigate) {
             dispatch(logout(navigate))
             navigate("/")
         } catch (error) {
-            console.log("Account Deleting API ERROR...........", error);
+            // console.log("Account Deleting API ERROR...........", error);
             toast.error("Something wrong!");
         }
 

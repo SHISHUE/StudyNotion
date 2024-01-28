@@ -72,7 +72,7 @@ function Setting() {
   const handleSubmitProfile = (event) => {
     event.preventDefault();
 
-    console.log("Profile wale form ka Data", dob, gender, about, phonenumber);
+    // console.log("Profile wale form ka Data", dob, gender, about, phonenumber);
     if (dob || gender || about || phonenumber) {
       dispatch(updateprofileInfo(gender, dob, phonenumber, about, token));
     }
@@ -85,12 +85,12 @@ function Setting() {
   //Event handler for Profile Password form submission
   const handlerSubmitPassword = (event) => {
     event.preventDefault();
-    console.log(
-      "PROFILE PASS WORD WALE ME DATA AA RAHA HAI...",
-      password,
-      newPassword,
-      token
-    );
+    // console.log(
+    //   "PROFILE PASS WORD WALE ME DATA AA RAHA HAI...",
+    //   password,
+    //   newPassword,
+    //   token
+    // );
 
     if (password && newPassword) {
       dispatch(changePassword(token, password, newPassword, navigate));

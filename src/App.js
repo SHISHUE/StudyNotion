@@ -20,6 +20,12 @@ import { ACCOUNT_TYPE } from "./utils/constants";
 import {useSelector} from 'react-redux'
 import MyCourses from "./components/core/Dashboard/MyCourses";
 import AddCourse from "./components/core/Dashboard/AddCourse/index";
+import EditCourse from "./components/core/Dashboard/EditCourse/index";
+import Catalog from "./pages/Catalog";
+import CourseDetails from "./pages/CourseDetails";
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
+import InstructorPage from "./components/core/Dashboard/InstructorDashboard/InstructorPage";
 
 function App() {
   const {user} = useSelector((state) => state.profile)
@@ -35,6 +41,21 @@ function App() {
             </OpenRoute>
           }
         />
+        <Route
+          path="catalog/:catalogName"
+          element={
+            <OpenRoute>
+              <Catalog />
+            </OpenRoute>
+          }
+        /><Route
+        path="courses/:courseId"
+        element={
+          <OpenRoute>
+            <CourseDetails />
+          </OpenRoute>
+        }
+      />
         <Route
           path="/login"
           element={
@@ -117,13 +138,30 @@ function App() {
               <>
                 <Route path="/dashboard/my-courses" element={<MyCourses />} />
                 <Route path="/dashboard/add-course" element={<AddCourse />} />
+                <Route path="/dashboard/edit-course/:courseId" element={<EditCourse />} />
+                <Route path="/dashboard/instructor" element={<InstructorPage />} />
                
               </>
             )
           }
 
 
+
+
         </Route>
+
+          <Route element={<PrivateRoute><ViewCourse /></PrivateRoute>}>
+              {
+                user?.accountType === "Student" && (
+                  <>
+                    <Route path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId" element={<VideoDetails />}>
+                      
+                    </Route>
+                  </>
+                )
+              }
+          </Route>
+
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

@@ -42,7 +42,7 @@ function RequirementField({
         className="text-[14px] text-richblack-5 flex items-center"
       >
         {label}
-        <sup>*</sup>
+        <sup className="text-[14px] text-[#EF476F] ">*</sup>
       </label>
       <div className="flex gap-2 items-center">
         <input

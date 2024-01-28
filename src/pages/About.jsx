@@ -11,6 +11,7 @@ import StatsComponent from "../components/core/AboutPage/StatsComponent";
 import LearningGrid from "../components/core/AboutPage/LearningGrid";
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection";
 import Footer from "../components/common/Footer";
+import ReviewSlider from "../components/common/ReviewSlider";
 
 function About() {
   return (
@@ -118,11 +119,14 @@ function About() {
         </section>
 
         {/* section 6 */}
-        <section>
-          <div>
-            Reviews from other learners
-            {/* <ReviewSlider />  */}
-          </div>
+        <section className="mx-auto flex flex-col items-center justify-between gap-5">
+          
+          <h2 className="text-center text-4xl font-semibold mt-10">
+          Review from other Learners
+        </h2>
+        {/* Review slider */}
+        <ReviewSlider />
+          
         </section>
       </div>
 

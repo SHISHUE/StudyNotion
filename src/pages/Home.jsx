@@ -10,13 +10,14 @@ import LearningLanguageSection from "../components/core/HomePage/LearningLanguag
 import InstructorSection from "../components/core/HomePage/InstructorSection";
 import Footer from "../components/common/Footer";
 import ExploreMore from "../components/core/HomePage/ExploreMore";
+import ReviewSlider from "../components/common/ReviewSlider";
 function Home() {
   return (
     <div>
       {/* Section 1  */}
 
       <section className="relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white justify-between">
-        <Link to={"/signup"} className="mt-24">
+        <Link to={"/signup"} className="mt-10 lg:mt-24">
           <div className="group h-fit p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit hover:drop-shadow-lg">
             <div className="flex gap-2 rounded-full px-10 py-[5px] items-center transition-all duration-200 group-hover:bg-richblack-900">
               <p> Become an Instructor </p>
@@ -46,7 +47,7 @@ function Home() {
           </CTAButton>
         </div>
 
-        <div className="mx-auto  w-[80%] my-12 video">
+        <div className="mx-auto  w-full my-12 video">
           <video muted loop autoPlay className="video-shadow">
             <source src={Banner} type="video/mp4" />
           </video>
@@ -161,10 +162,12 @@ function Home() {
         <InstructorSection />
 
         <h2 className="text-center text-4xl font-semibold mt-10">
-          review from other Learners
+          Review from other Learners
         </h2>
         {/* Review slider */}
+        <ReviewSlider />
       </section>
+
       {/* Section 4 Footer  */}
       <Footer />
     </div>
