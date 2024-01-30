@@ -200,7 +200,7 @@ function Navbar() {
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-between gap-x-[22vw]">
+          <div className={`flex items-center justify-between ${user ? "gap-x-[22vw]" : "gap-x-[17vw]"}`}>
             <nav className="text-[20px]">
               <ul className="flex gap-x-6 text-richblack-25">
                 {NavbarLinks.map((links, index) => (
@@ -251,7 +251,7 @@ function Navbar() {
                   <Link to="/dashboard/cart" className="">
                     <FaCartShopping className="text-richblack-200 text-[24px]" />
                     {totalItems > 0 && (
-                      <span className="w-[25%] text-[1vw] flex items-center justify-center rounded-full text-richblack-5 bg-[#44b559] absolute top-[5%] left-3 animate-bounce z-20">
+                      <span className="w-[25px] text-[1vw] flex items-center justify-center rounded-full text-richblack-5 bg-[#44b559] absolute top-[5%] left-3 animate-bounce z-20">
                         {totalItems}
                       </span>
                     )}
