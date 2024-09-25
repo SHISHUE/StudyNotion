@@ -23,7 +23,7 @@ function EnrolledCourses() {
 
     useEffect(() => {
        getEnrolledCourses();
-    })
+    },[])
 
 
 
